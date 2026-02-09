@@ -1,81 +1,87 @@
-📚 Book Recommender Bot
+# Book Recommender Bot
 
-Умный Telegram-бот для поиска и рекомендации книг с интеграцией OpenAI GPT-4o-mini. Бот помогает пользователям находить идеальные книги для чтения на основе различных критериев и предоставляет персонализированные рекомендации с помощью искусственного интеллекта.
+> Telegram-бот, который подбирает книги под ваш вкус через AI
 
-✨ Особенности
+Опишите, что хотите почитать — бот найдёт подходящие книги из базы и даст персональные рекомендации через GPT-4o-mini.
 
-    🔍 Поиск по критериям - фильтрация книг по жанру, рейтингу, цене, языку, автору и году издания
+## Что умеет
 
-    🤖 ИИ-анализ - интеллектуальный анализ найденных книг с рекомендациями от GPT-4o-mini
+- Ищет книги по жанру, автору, году, цене, рейтингу
+- Показывает бестселлеры, новинки, классику
+- Анализирует подборки через AI и объясняет, почему именно эти книги
+- Даёт персональные рекомендации на основе ваших предпочтений
+- Удобная навигация по результатам
 
-    ⭐ Персональные рекомендации - индивидуальные подборки на основе предпочтений пользователя
+## Быстрый старт
 
-    📊 Умные фильтры - быстрый поиск бестселлеров, новинок, классики
-
-    🔄 Пагинация - удобная навигация по результатам поиска
-
-    🐳 Docker-развертывание - полная контейнеризация с PostgreSQL и Redis
-
-🛠 Технологический стек
-
-    Backend: Python 3.11, Aiogram 3.3
-
-    AI: OpenAI GPT-4o-mini
-
-    Database: PostgreSQL 15
-
-    Cache/Session: Redis 7
-
-    Containerization: Docker, Docker Compose
-
-    ORM: SQLAlchemy 2.0
-
-    Environment: Pydantic Settings
-
-📋 Требования
-
-    Docker 20.10+
-
-    Docker Compose 2.20+
-
-    OpenAI API ключ
-
-    Telegram Bot Token
-
-🚀 Быстрый старт
-
-1. Клонирование репозитория
-
-git clone https://github.com/yourusername/book-recommender-bot.git
-cd book-recommender-bot
-
-2. Настройка окружения
-
+**1. Скопируйте `.env.example` в `.env`:**
+```bash
 cp .env.example .env
+```
 
-Отредактируйте файл .env:
+**2. Заполните `.env`:**
+```env
+TELEGRAM_BOT_TOKEN=ваш_токен_бота
+OPENAI_API_KEY=ваш_ключ_openai
+DB_PASSWORD=придумайте_пароль
+```
 
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+Токены:
+- Telegram — [@BotFather](https://t.me/botfather)
+- OpenAI — [platform.openai.com](https://platform.openai.com)
 
-OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=gpt-4o-mini
-
-DB_HOST=postgres
-DB_PORT=5432
-DB_NAME=book_bot
-DB_USER=postgres
-DB_PASSWORD=your_secure_password
-
-REDIS_HOST=redis
-REDIS_PORT=6379
-
-DEBUG=False
-LOG_LEVEL=INFO
-
-3. Запуск через Docker Compose
-
+**3. Запустите:**
+```bash
 docker-compose up -d --build
+```
 
-4. Проверка работы
-
+**4. Проверьте логи:**
+```bash
 docker-compose logs -f bot
+```
+
+## Как пользоваться
+
+1. Напишите `/start`
+2. Выберите способ поиска:
+   - По фильтрам (жанр, автор, год)
+   - Быстрый поиск (бестселлеры, новинки, классика)
+   - Персональные рекомендации от AI
+3. Получите подборку с анализом, почему эти книги вам подойдут
+
+## Что внутри
+
+- **PostgreSQL** — база книг
+- **Redis** — кэш и сессии
+- **GPT-4o-mini** — анализ и рекомендации
+- **Docker** — всё в контейнерах
+
+## Если что-то сломалось
+
+**Смотрите логи:**
+```bash
+docker-compose logs bot
+```
+
+**Перезапуск:**
+```bash
+docker-compose restart bot
+```
+
+**Полная перезагрузка:**
+```bash
+docker-compose down
+docker-compose up -d --build
+```
+
+## Требования
+
+- Docker 20.10+
+- Docker Compose 2.20+
+
+## Технологии
+
+Python 3.11, Aiogram 3.3, OpenAI GPT-4o-mini, PostgreSQL, Redis, SQLAlchemy
+
+
+MIT License
