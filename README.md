@@ -83,5 +83,6 @@ docker-compose up -d --build
 
 Python 3.11, Aiogram 3.3, OpenAI GPT-4o-mini, PostgreSQL, Redis, SQLAlchemy
 
+---
 
 MIT License
